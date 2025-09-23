@@ -1,0 +1,36 @@
+#include<stdio.h>
+#include "TIK TAK TOE GAME.h"
+int main()
+{
+	printf("------TIK TAK TOE GAME------");
+	char winner=' ';
+	char ch;
+	do
+	{
+		winner=' ';
+		ch=' ';
+		resetboard();
+	while(winner==' '&& checkfreespaces()!=0)
+	{
+			printboard();
+			playermove();
+			winner= checkwinner();
+			if(winner!=' '||checkfreespaces()==0)
+			    break;
+			computermove();
+			winner= checkwinner();
+			if(winner!=' '||checkfreespaces()==0)
+			    break;
+		
+	}
+	printboard();
+	printwinner(winner);
+	printf(" \n WOULD YOU LIKE TO PLAY AGAIN (Y/N):");
+	scanf("%c");
+	scanf("%c",&ch);
+	ch=toupper(ch);
+	}while(ch!='N');
+	printf("THANK YOU FOR PLAYING!");
+	return 0;
+}
+
